@@ -23,3 +23,6 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// This cypress instruction can be removed if there is a reference for the Cypress 'const cypress = require('cypress') ' in each cypress script separately anywhere in the project.
+/// <reference types = "Cypress" /> 
