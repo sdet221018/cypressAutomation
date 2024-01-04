@@ -8,7 +8,7 @@
 // tag class attribute:     tag.class[attribute='value']
 
 describe('cssLocators', function() {
-    it.only('cssLocators', () => {
+    it('cssLocators', () => {
         // cy.visit('https://trailhead.salesforce.com/')
         // let searchString = 'Salesforce'
         cy.visit('https://www.amazon.co.uk/')
