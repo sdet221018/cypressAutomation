@@ -6,7 +6,7 @@ describe('suite1', () => {
 
     it('test2 - Verify Title - Negative', () => {
         cy.visit("https://opensource-demo.orangehrmlive.com/")
-        cy.title().should('eq', 'OrangeHRM123')
+        cy.title().should('not.eq', 'OrangeHRM123')
     })
 })
 
