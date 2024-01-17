@@ -69,3 +69,35 @@ describe("Assertions Demo3", () => {
 
     })
 })
+
+describe("Assertions Demo4", () => {
+    it("Explicit Assertions", () => {
+
+        cy.log("4rth Usage of Assertions: expect and assess")
+        cy.log("=========================================")
+        cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+        // BDD and TDD Style Assertions using a further optimization of the methods
+        cy.get("input[placeholder='Username']").type("Admin")
+        cy.get("input[placeholder='Password']").type("admin123")
+        cy.get("button[type='submit']").click()
+
+        let expName = "Paul Collings";
+
+        cy.get(".oxd-userdropdown-name").then( (x)=> {
+
+            let actName = x.text();
+
+            //BDD Style
+           expect(actName).to.equal(expName);
+            // expect(actName).to.not.equal(expName);
+
+            //TDD Style
+            assert.equal(actName, expName);
+            // assert.notEqual(actName, expName);
+
+        })
+
+        cy.log("4rth Usage of Assertions: Completed")
+
+    })
+})
