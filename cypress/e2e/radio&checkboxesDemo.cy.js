@@ -40,7 +40,7 @@ describe ("Check UI Element", ()=> {
         cy.log("Verification of Multi Way Journey Type Completed")
     })
 
-    it.only("Checking CheckBoxes",()=> {
+    it("Checking CheckBoxes",()=> {
         cy.visit("https://example.cypress.io/commands/actions")
 
         // cy.log("Verification of Single Check Boxes Checking")
@@ -70,7 +70,7 @@ describe ("Check UI Element", ()=> {
 
     })
 
-    it.only("Unchecking the Checkboxes", ()=> {
+    it("Unchecking the Checkboxes", ()=> {
         cy.visit("https://example.cypress.io/commands/actions")
 
         // By default, .uncheck() will uncheck all matching
