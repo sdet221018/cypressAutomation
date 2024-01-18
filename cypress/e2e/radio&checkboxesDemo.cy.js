@@ -39,4 +39,58 @@ describe ("Check UI Element", ()=> {
         cy.get(".multi-city").should("be.visible")
         cy.log("Verification of Multi Way Journey Type Completed")
     })
+
+    it.only("Checking CheckBoxes",()=> {
+        cy.visit("https://example.cypress.io/commands/actions")
+
+        // cy.log("Verification of Single Check Boxes Checking")
+        // cy.log("===========================================")
+        // Check Single Check Box
+        // cy.get('.action-checkboxes [type="checkbox"]').not('[disabled]').check().should('be.checked')
+        // cy.log("Verification of Single Check Box Completed")
+
+        cy.log("Verification of Multiple Check Boxes Checking")
+        cy.log("=============================================")
+        // Check Multiple Check Boxes altogether
+        // By default, .check() will check all
+        // matching checkbox or radio elements in succession, one after another
+        cy.get('.action-checkboxes [type="checkbox"]').not('[disabled]')
+          .check().should('be.checked')
+
+        // .check() accepts an array of values
+        cy.get('.action-multiple-checkboxes [type="checkbox"]')
+        .check(['checkbox1', 'checkbox2']).should('be.checked')
+
+        cy.log("Verification of Multiple Check Boxes Completed")
+
+
+        // Ignore error checking prior to checking
+        cy.get('.action-checkboxes [disabled]')
+          .check({ force: true }).should('be.checked')
+
+    })
+
+    it.only("Unchecking the Checkboxes", ()=> {
+        cy.visit("https://example.cypress.io/commands/actions")
+
+        // By default, .uncheck() will uncheck all matching
+        // checkbox elements in succession, one after another
+        cy.get('.action-check [type="checkbox"]')
+          .not('[disabled]')
+          .uncheck().should('not.be.checked')
+
+        // .uncheck() accepts a value argument
+        cy.get('.action-check [type="checkbox"]')
+          .check('checkbox1')
+          .uncheck('checkbox1').should('not.be.checked')
+
+        // .uncheck() accepts an array of values
+        cy.get('.action-check [type="checkbox"]')
+          .check(['checkbox1', 'checkbox3'])
+          .uncheck(['checkbox1', 'checkbox3']).should('not.be.checked')
+
+        // Ignore error checking prior to unchecking
+        cy.get('.action-check [disabled]')
+          .uncheck({ force: true }).should('not.be.checked')
+    })
 })
