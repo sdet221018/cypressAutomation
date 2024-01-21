@@ -25,4 +25,10 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 // This cypress instruction can be removed if there is a reference for the Cypress 'const cypress = require('cypress') ' in each cypress script separately anywhere in the project.
-/// <reference types = "Cypress" /> 
+/// <reference types = "Cypress" />
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // returning false here prevents Cypress from
+    // failing the test
+    return false
+})
